@@ -31,5 +31,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)shuffleDeckTapped:(id)sender {
+       [self.dataSource configureTableView:self.tableView];
+}
 
 @end
