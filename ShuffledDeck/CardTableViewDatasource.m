@@ -50,7 +50,12 @@ static NSString * const kCardCellID = @"cardCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCardCellID];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", card.suit, card.value];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", card.imageURL];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", card.imageURL];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", card.imageURL]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *cardImage = [UIImage imageWithData:data];
+    cell.imageView.image = cardImage;
     
     return cell;
 }
